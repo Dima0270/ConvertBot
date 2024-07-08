@@ -26,6 +26,8 @@ def convert(message: telebot.types.Message):
             raise ConvertException("Неверное количество параметров ввода")
 
         currency_start, currency_end, value = request
+        currency_start = currency_start.lower()
+        currency_end = currency_end.lower()
         ratio = Convert.get_price(currency_start, currency_end, value)
     except ConvertException as e:
         bot.reply_to(message, f"Ошибка пользователя. \n{e}")
