@@ -7,7 +7,8 @@ bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message: telebot.types.Message):
-    bot.send_message(message.chat.id, f"Привет, {message.chat.first_name}.\nBot Convert работает в следующем режиме - \nНужно ввести по порядку через пробел: \n'Имя валюты'  'Валюту в которую хотите перевести'  'Количество переводимой валюты' \nПример: рубль доллар 300 \nВы можете увидеть список доступных валют если введёте команду /values")
+    bot.send_message(message.chat.id, f"Привет, {message.chat.first_name}.\nBot Convert работает в следующем режиме - \nНужно ввести по порядку через пробел: \n'Имя валюты'  'Валюта в которую хотите перевести'  'Количество переводимой валюты' \nВы можете увидеть список доступных валют если введёте команду /values")
+    bot.send_message(message.chat.id, f"Пример: рубль доллар 300 ")
 
 @bot.message_handler(commands=['values'])
 def getvalues(message: telebot.types.Message):
